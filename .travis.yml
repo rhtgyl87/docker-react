@@ -1,3 +1,4 @@
+language: generic 
 sudo: required
 services:
     - docker
@@ -6,5 +7,5 @@ before_install:
     - docker build -t rhtgyl87/docker-react -f Dockerfile.dev .
 
 script:
-    - docker run rhtgyl87/docker-react npm run test -- --coverage
+    - docker run -e CI=true rhtgyl87/docker-react npm run test -- --coverage
 
